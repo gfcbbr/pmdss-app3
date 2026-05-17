@@ -35,4 +35,19 @@ export function FleetOverviewPage() {
                 <td style={{ padding: '12px 16px', fontSize: '14px', color: '#64748B' }}>{m.location}</td>
                 <td style={{ padding: '12px 16px', fontSize: '14px', color: statusColor[m.status], fontWeight: 'bold' }}>{m.status}</td>
                 <td style={{ padding: '12px 16px', fontSize: '14px' }}>
-                  <div style={{ display: 'flex', alignItems: 
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ flex: 1, height: '6px', background: '#F1F5F9', borderRadius: '3px' }}>
+                      <div style={{ width: `${m.health}%`, height: '100%', background: healthColor(m.health), borderRadius: '3px' }} />
+                    </div>
+                    <span style={{ color: healthColor(m.health), fontWeight: 'bold', fontSize: '13px' }}>{m.health}%</span>
+                  </div>
+                </td>
+                <td style={{ padding: '12px 16px', fontSize: '14px', color: '#64748B' }}>{m.lastMaintenance}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
